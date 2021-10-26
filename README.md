@@ -22,37 +22,28 @@ Terraform ~> 1.0.9
 
 This module should be called by a terraform environment configuration
 ```  
-    source  =   "git@github.com:RSCOEN/aws-tf-module-vpc.git"
+    source  =   "git@github.com:sce81/aws-tf-module-vpc.git"
 ```
 
-### Usage
+##### Usage
 
-This module has a number of mandatory variables it expects to be passed into it.  
+    module "aws_vpc" {
+        source = "git@github.com:sce81/aws-tf-module-vpc.git"
+        name                    = "primary"
+        env                     = var.env
+        vpc_cidr                = "10.0.0.0/20"
+        public_subnet_cidr      = ["10.0.0.0/24","10.0.1.0/24", "10.0.2.0/24"]
+        private_subnet_cidr     = ["10.0.3.0/24","10.0.4.0/24", "10.0.5.0/24"]
+        database_subnet_cidr    = ["10.0.6.0/24","10.0.7.0/24", "10.0.8.0/24"]
+    }
 
-```
-env
-name
-vpc_cidr
 
-````
-subnets can be configuredn by passing a list of cidrs for each tier. it is recommended the use the same number of cidrs per tier as there are availability zones in the AWS region you are deploying to.
+addional tags can be appended using the following map values
 
-public_subnet_cidr
-private_subnet_cidr
-database_subnet_cidr
-````
-
-addional tags can be appended using the following map
-
-```
-extra_tags
-public_extra_tags
-private_extra_tags
-database_extra_tags
-```
-
-the remaining variables are configured with sane defaults which can be overwritten by the parent.  
-
+        extra_tags
+        public_extra_tags
+        private_extra_tags
+        database_extra_tags
 
 ### Outputs
 
