@@ -11,6 +11,7 @@ output "private_subnet_ids" {
   value = "${aws_subnet.private.*.id}"
 }
 
-output "nat_gateway" {
-  value = "${aws_nat_gateway.gw.*.public_ip}"
+output "database_subnet_ids" {
+  value = "${aws_subnet.database.*.id}"
 }
+
