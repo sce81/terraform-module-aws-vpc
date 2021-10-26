@@ -1,15 +1,44 @@
-variable "env"                      {}
+variable "env"                      {
+                                        type = string
+                                        description = "Friendly Env value for the VPC and Subnetwork components"
+}
+variable "name"                     {
+                                        type = string
+                                        description = "Friendly Name value for the VPC and Subnetwork components"
+                                    }
 variable "enable_dns_support"       {default = true}
 variable "enable_dns_hostnames"     {default = true}
-variable "cidr_block"               {}
-variable "public_subnet_cidr"       {type = list}
-variable "private_subnet_cidr"      {type = list}
-variable "availability_zone"        {
-                                    type        = list
-                                    default     = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+variable "vpc_cidr"                 {}
+variable "public_subnet_cidr"       {
+                                        type = list
+                                        default = []    
                                     }
-variable "public_subnet_count"      {default = 3}
-variable "private_subnet_count"     {default = 3}
-variable "nat_gateway_count"        {default = 3}
+variable "private_subnet_cidr"      {
+                                        type = list
+                                        default = []   
+                                    }
+variable "database_subnet_cidr"     {
+                                        type = list
+                                        default = []   
+                                    }
 
-
+variable "extra_tags"               {
+                                        type = map
+                                        default = {}
+                                        description = "Placeholder to allow for additional custom tags to be passed into the module from the environment in map format"
+                                    }
+variable "public_extra_tags"        {
+                                        type = map
+                                        default = {}
+                                        description = "Placeholder to allow for additional custom tags to be passed into the module from the environment in map format"
+                                    }
+variable "private_extra_tags"       {
+                                        type = map
+                                        default = {}
+                                        description = "Placeholder to allow for additional custom tags to be passed into the module from the environment in map format"
+                                    }
+variable "database_extra_tags"      {
+                                        type = map
+                                        default = {}
+                                        description = "Placeholder to allow for additional custom tags to be passed into the module from the environment in map format"
+                                    }
