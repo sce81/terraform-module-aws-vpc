@@ -49,7 +49,7 @@ addional tags can be appended using the following map values
 
 The following values are outputted
 
-- aws_vpc.main.id
-- aws_subnet.public.*.id
-- aws_subnet.private.*.id
-- aws_subnet.database.*.id
+        aws_vpc.main.id
+        aws_subnet.public.*.id
+        aws_subnet.private.*.id
+        aws_subnet.database.*.id
