@@ -1,4 +1,4 @@
-# aws-tf-module-vpc
+# terraform-module-aws-vpc
 Terraform module for AWS VPC
 
 
@@ -20,15 +20,21 @@ Terraform ~> 1.0.0
 Terraform ~> 1.0.9
 ### Installing
 
-This module should be called by a terraform environment configuration
+This module should be called by a terraform environment configuration via github
 ```  
-    source  =   "git@github.com:sce81/aws-tf-module-vpc.git"
+      source           = "git@github.com:sce81/terraform-module-aws-vpc.git"
 ```
+or Terraform Cloud
+```
+      source           = "app.terraform.io/HashiCorp_AWS_Org/aws-vpc/module"
+      version          = "1.0.0"
+```
+
 
 ##### Usage
 
     module "aws_vpc" {
-        source = "git@github.com:sce81/aws-tf-module-vpc.git"
+        source = "git@github.com:sce81/terraform-module-aws-vpc.git"
         name                    = "primary"
         env                     = var.env
         vpc_cidr                = "10.0.0.0/20"
