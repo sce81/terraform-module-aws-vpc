@@ -17,12 +17,13 @@ resource "aws_vpc" "main" {
 resource "aws_default_security_group" "main" {
   vpc_id = aws_vpc.main.id
 
-  ingress {
-    protocol  = -1
-    self      = true
-    from_port = 0
-    to_port   = 0
-  }
+
+  tags = merge(
+    local.common_tags, var.extra_tags,
+    tomap({
+      Name = "${var.name}-${var.env}-vpc"
+    })
+  )
 }
 
 resource "aws_subnet" "public" {
