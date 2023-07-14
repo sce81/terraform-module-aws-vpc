@@ -3,7 +3,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-    common_tags = {
-        Terraform   = "true"
-    }
+  common_tags = {
+    Terraform = "true"
+  }
 }
